@@ -19,18 +19,18 @@ sbrn.set_style("whitegrid", rc = custom)
 dataSet = pd.read_table(filename, skiprows = 0, header=0, delimiter=",")
 print(dataSet.head())
  
-ax = sbrn.lineplot(data=dataSet, x="size", y="gups",hue="type",palette="flare",legend="full")
+ax = sbrn.lineplot(data=dataSet, x="ts", y="gups",hue="ls",palette="flare",legend="full")
  
 ax.set_xscale("log")
-#ax.set_yscale("log")
-ax.set_xlabel('view size (MB)',fontsize=_fontsize);
+ax.set_yscale("log")
+ax.set_xlabel('Team Size',fontsize=_fontsize);
 ax.set_ylabel('GUPs',fontsize=_fontsize);
 
 #ax.legend(fontsize=_fontsize)
-ax.legend(title="Kokkos view type") #, loc='lower right')
+ax.legend(title="device kernel league size") #, loc='lower right')
 ax.set_title(title,fontsize=_fontsize)
   
-#plt.tight_layout()
+plt.tight_layout()
 #plt.show()
 filename_short=os.path.basename(filename)
 plt.savefig("./PNG/"+filename_short+".png", dpi=300)
